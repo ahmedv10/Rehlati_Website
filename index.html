@@ -8,8 +8,8 @@
 
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,300&family=Manrope:wght@300;400;500;600;800&family=Noto+Kufi+Arabic:wght@300;400;500;700&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,300&amp;family=Manrope:wght@300;400;500;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 
 <!-- Tailwind CSS via CDN -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -210,7 +210,6 @@ tailwind.config = {
             <img src="./logo.png" alt="REHLATI Logo" class="h-16 md:h-20 w-auto object-contain shadow-lg rounded-xl opacity-95">
         </div>
         <div class="hidden md:flex gap-14 items-center">
-            <button id="lang-btn" class="font-bold text-[12px] uppercase tracking-widest text-[#4e4639] hover:text-primary transition-colors border border-[#4e4639]/30 rounded px-3 py-1 mr-4">AR</button>
             <a class="font-serif text-sm uppercase tracking-widest text-primary font-semibold relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-[1px] after:bg-primary transition-all duration-300" href="#">Journal</a>
             <a class="font-serif text-sm uppercase tracking-widest text-[#4e4639] hover:text-primary relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-primary hover:after:w-full after:transition-all after:duration-300 transition-colors duration-300" href="#">Collections</a>
             <a class="font-serif text-sm uppercase tracking-widest text-[#4e4639] hover:text-primary relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-primary hover:after:w-full after:transition-all after:duration-300 transition-colors duration-300" href="#">About</a>
@@ -389,88 +388,6 @@ tailwind.config = {
 </footer>
 
 <script>
-    // Language Toggle Feature
-    const dictionary = {
-        "Journal": "المجلة",
-        "Collections": "المجموعات",
-        "About": "من نحن",
-        "Notify Me": "أعلمني",
-        "Establishing The Standard": "نضع المعايير",
-        "THE CURATED": "الأرشيف",
-        "ARCHIVE": "المنتقى",
-        "Your premier online travel agency for securing exclusive hotel accommodations, global flight bookings, and seamless international eSIM connectivity.": "وكالتك السياحية الأولى لحجوزات فندقية حصرية، رحلات طيران، وشريحة إلكترونية (eSIM) عالمية.",
-        "Enter email address": "أدخل البريد الإلكتروني",
-        "Invite Me": "دعوة",
-        "You are on the list.": "لقد تمت إضافتك للقائمة.",
-        "Discover": "اكتشف",
-        "Our Services": "خدماتنا",
-        "Discover a world of": "اكتشف عالماً من السفر",
-        "seamless": "السلس",
-        "travel.": ".",
-        "As a premier Online Travel Agency, REHLATI provides end-to-end luxury travel management. From securing premium flights and elite hotels to providing instant global eSIMs, we ensure your journey is flawlessly executed.": "بصفتنا وكالة سفر رائدة، نُوفر إدارة شاملة للسفر الفاخر. من تأمين الطيران والفنادق المرموقة إلى شرائح eSIM للتواصل الفوري، نضمن دقة التنفيذ.",
-        "View Resorts": "المنتجعات",
-        "Elite Accommodations": "إقامات نخبوية",
-        "Partnering with the world's most prestigious hotel brands and private estates to offer unparalleled comfort and VIP upgrades.": "شراكة مع أرقى العلامات الفندقية والعقارات الخاصة لتقديم راحة لا تضاهى وترقيات مميزة.",
-        "Book Flights": "احجز رحلتك",
-        "Global Flight Bookings": "حجوزات طيران",
-        "Seamless connections across the globe. We manage first-class, business, and private charter flights tailored precisely to your schedule.": "رحلات سلسة حول العالم. ندير الطيران من الدرجة الأولى والأعمال والطائرات الخاصة المصممة لجدولك.",
-        "Get Connected": "تواصل",
-        "Global eSIM": "شريحة إلكترونية",
-        "Stay connected wherever your journey takes you. We provide seamless, high-speed international eSIM profiles instantly activated upon arrival.": "ابق متصلاً أينما ذهبت. نقدم شرائح دولية عالية السرعة تُفعل فور وصولك لضمان راحتك.",
-        "\"Luxury is not the absence of simplicity, but the presence of meaning in every detail.\"": "«الرفاهية ليست غياب البساطة، بل في وجود معنى يعكس كل تفصيل.»",
-        "The Curator's Note": "المنسق",
-        "The Curated Archive": "الرحلات الإستثنائية",
-        "Instagram": "إنستغرام",
-        "LinkedIn": "لينكدان",
-        "Contact": "اتصل بنا",
-        "© 2026 REHLATI ARCHIVE. All Rights Reserved.": "© 2026 رحلتي. جميع الحقوق محفوظة.",
-        "Designed for the Extraordinary": "صُمم ليكون استثنائياً"
-    };
-
-    let isArabic = false;
-    let originalTexts = new Map();
-
-    function walkDOMAndStore(node) {
-        if (node.nodeType === 3) {
-            let t = node.nodeValue.trim();
-            if (t.length > 0 && dictionary[t]) {
-                originalTexts.set(node, {eng: t, fullFormat: node.nodeValue});
-            }
-        } else if (node.nodeType === 1) {
-            if (node.tagName === 'SCRIPT' || node.tagName === 'STYLE' || node.id === 'lang-btn') return;
-            if (node.placeholder && dictionary[node.placeholder]) {
-                originalTexts.set(node, {eng: node.placeholder, fullFormat: node.placeholder});
-            }
-            for (let child of node.childNodes) walkDOMAndStore(child);
-        }
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-        walkDOMAndStore(document.body);
-        const btn = document.getElementById('lang-btn');
-        if(!btn) return;
-        btn.addEventListener('click', () => {
-            isArabic = !isArabic;
-            document.documentElement.dir = isArabic ? "rtl" : "ltr";
-            document.documentElement.lang = isArabic ? "ar" : "en";
-            btn.innerText = isArabic ? "EN" : "AR";
-            
-            if(isArabic) {
-                document.body.style.fontFamily = "'Noto Kufi Arabic', sans-serif";
-            } else {
-                document.body.style.fontFamily = "'Manrope', sans-serif";
-            }
-
-            for (let [node, data] of originalTexts.entries()) {
-                if(node.nodeType === 3) {
-                    node.nodeValue = isArabic ? data.fullFormat.replace(data.eng, dictionary[data.eng]) : data.fullFormat;
-                } else if(node.placeholder) {
-                    node.placeholder = isArabic ? dictionary[data.eng] : data.eng;
-                }
-            }
-        });
-    });
-
     // Hero Parallax Effect
     const heroImg = document.getElementById('hero-img');
     window.addEventListener('scroll', () => {
