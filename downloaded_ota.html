@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,300&amp;family=Manrope:wght@300;400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#f0eded",
+                    "on-primary-container": "#4e3700",
+                    "on-tertiary-container": "#3b3b38",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "outline-variant": "#d1c5b4",
+                    "on-background": "#1b1c1c",
+                    "tertiary-fixed": "#e4e2dd",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#e9c176",
+                    "surface-dim": "#dcd9d9",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-surface": "#1b1c1c",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#303030",
+                    "secondary-fixed-dim": "#c8c6c6",
+                    "tertiary-fixed-dim": "#c8c6c2",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#775a19",
+                    "primary-container": "#c5a059",
+                    "primary": "#775a19",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#5e5e5b",
+                    "on-secondary-fixed-variant": "#474747",
+                    "on-primary-fixed": "#261900",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#ffdea5",
+                    "secondary-fixed": "#e4e2e1",
+                    "on-surface-variant": "#4e4639",
+                    "secondary": "#5f5e5e",
+                    "surface-variant": "#e4e2e1",
+                    "on-primary-fixed-variant": "#5d4201",
+                    "background": "#fcf9f8",
+                    "on-secondary-container": "#656464",
+                    "surface-container-low": "#f6f3f2",
+                    "surface-container-high": "#eae7e7",
+                    "primary-fixed-dim": "#e9c176",
+                    "on-tertiary-fixed": "#1b1c19",
+                    "outline": "#7f7667",
+                    "on-tertiary-fixed-variant": "#474744",
+                    "surface-container-highest": "#e4e2e1",
+                    "surface-bright": "#fcf9f8",
+                    "surface": "#fcf9f8",
+                    "secondary-container": "#e4e2e1",
+                    "tertiary-container": "#a6a5a1",
+                    "inverse-on-surface": "#f3f0ef"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; background-color: #fcf9f8; color: #1b1c1c; }
+        .serif-display { font-family: 'Noto Serif', serif; }
+        .glass-panel {
+            background: rgba(252, 249, 248, 0.65);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-xl">
+<div class="flex justify-between items-center px-8 py-6 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-serif font-light tracking-[0.2em] text-neutral-900 dark:text-neutral-100 uppercase"><img alt="REHLATI Logo" class="w-auto object-contain h-10" src="https://lh3.googleusercontent.com/aida/ADBb0uj5RdV7_E2znZdSiXP0U6zeYv7WoqmfOgK-jYBoRuGf9LpEoz-__laLdsOAAHEcwK9_rS4SMKWSH2uRUoZbjHvLlgeeFjZNIJ9jT4uzFt3A-J5XyaUFA6TPxcg55-YBe2cqEemSQMCGLXfDgwyzEoLrqRslNyHYch1oKL2p2SG0xVrk4PKMpbjC41RFVx2Rgu1y8DkXR1APUGxsgiKlEELjCcN9JA819MF1afmeOKEjiwZ5_e-P890CnZdIVAhfcnz6VXuTFxOVYg"/></div>
+<div class="hidden md:flex gap-12 items-center">
+<a class="font-serif text-lg tracking-widest text-yellow-800 dark:text-yellow-400 font-bold border-b-2 border-yellow-600 transition-colors duration-300" href="#">Journal</a>
+<a class="font-serif text-lg tracking-widest text-neutral-600 dark:text-neutral-400 hover:text-yellow-700 transition-colors duration-300" href="#">Collections</a>
+<a class="font-serif text-lg tracking-widest text-neutral-600 dark:text-neutral-400 hover:text-yellow-700 transition-colors duration-300" href="#">About</a>
+</div>
+<div>
+<button class="bg-primary text-on-primary px-6 py-2 text-xs uppercase tracking-[0.15em] font-semibold hover:opacity-90 transition-all duration-200">
+                    Notify Me
+                </button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Luxury beach" class="w-full h-full object-cover" data-alt="wide cinematic shot of a pristine tropical beach at sunrise with soft golden light reflecting on calm turquoise water and luxury villa silhouettes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2XCHUZUVrtJSt2EokMlwV3UpIOv8P0B1V1eiRt1sb0-z13nirvMWkuEAVr7gBdceEpAR373CxxXLangRtX8cTG4xCA-7y_UWLz3kujmiqLVfYUI_E6pmEaX-Kz3EEgz6yuUogiPq1Oz1GsU4X6Z9IGKa1ldnm0KDC0NcH4Tp6nKZSPFcwP6s5j0e5Td2R-oavUksNwlWe_fWml4OmuyicQI7B8uesgHMjxyGW4iimeZk9ixnofy9ViCcPUSPlVmGqosYPiWuyby23"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background"></div>
+</div>
+<div class="relative z-10 max-w-5xl w-full text-center space-y-12">
+<div class="space-y-6">
+<span class="text-primary font-body text-xs uppercase tracking-[0.4em] block animate-pulse">Establishing The Standard</span>
+<h1 class="serif-display text-5xl md:text-8xl font-light text-on-surface leading-[1.1] tracking-tight">
+                        REHLATI: THE CURATED ARCHIVE<br/>
+<span class="italic font-normal">Journeying Soon</span>
+</h1>
+<p class="max-w-2xl mx-auto text-lg md:text-xl text-on-surface-variant font-light leading-relaxed">
+                        Transforming the landscape of luxury travel through bespoke itineraries, hidden narratives, and the art of intentional exploration.
+                    </p>
+</div>
+<!-- Signup Field -->
+<div class="max-w-md mx-auto">
+<form class="relative group">
+<input class="w-full bg-surface-container-low border-none focus:ring-1 focus:ring-primary/30 py-6 px-8 pr-32 text-on-surface placeholder:text-outline/60 text-sm tracking-wide" placeholder="Enter your email address" type="email"/>
+<button class="absolute right-2 top-2 bottom-2 bg-primary text-on-primary px-6 font-semibold text-xs uppercase tracking-widest hover:bg-on-primary-container transition-all duration-300" type="submit">
+                            Invite Me
+                        </button>
+</form>
+<p class="mt-4 text-[10px] uppercase tracking-widest text-outline">Exclusive access to our inaugural seasonal collection</p>
+</div>
+</div>
+</section>
+<!-- Our Philosophy (Bento Style) -->
+<section class="py-32 px-6 md:px-12 bg-background">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-end mb-24">
+<div class="md:col-span-7">
+<h2 class="serif-display text-4xl md:text-6xl font-light text-on-surface leading-tight">
+                            A philosophy of<br/>
+<span class="italic">unhurried excellence.</span>
+</h2>
+</div>
+<div class="md:col-span-5 pb-2">
+<p class="text-on-surface-variant font-light leading-relaxed border-l border-primary/20 pl-8">
+                            We do not simply book trips; we archive experiences. Every destination is hand-selected, every partner vetted for their soul, and every itinerary crafted as a unique narrative for the modern wanderer.
+                        </p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Feature 1 -->
+<div class="group space-y-6">
+<div class="aspect-[4/5] overflow-hidden bg-surface-container">
+<img alt="Editorial architecture" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110" data-alt="monochrome architectural detail of a luxury desert resort showing clean lines, dramatic shadows, and minimalist stone textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8ncGkhw7dBg44oQG-eHvhZaHWdktYyPt1Rs-_7KQF0c2PEgBZhN3YOP-AhtS15nH0kMUcT4PismDffJnrHl_VhyijrXFwkYRu9yxHq8q7xhpej2yDUMFQdNqZn9UKz1Ugzb-DnlDrYydQNxzNVChLD9eosmTPA9nyINDpSLD8_YyOEarqBO3ML75ksXOOntkm1MSGPMsRQ71Sd5dEkKZ-arVZ-qAjV9WH-20fPpV2ZrlBecaHmZSuAYh4MTrdCx1POnMDCRmfraNA"/>
+</div>
+<div class="space-y-3">
+<h3 class="serif-display text-2xl">Bespoke Curation</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed font-light">Direct relationships with property owners and local tastemakers ensure access that exists nowhere else.</p>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="group space-y-6 md:mt-16">
+<div class="aspect-[4/5] overflow-hidden bg-surface-container">
+<img alt="Secluded landscape" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110" data-alt="atmospheric view of misty mountain peaks at dusk with soft purple and gold hues in the sky and a sense of absolute stillness" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAETw2h24izpT6cbXTVbP2Ctoo-8YnuBwGtneVsvvG1KmBKx7fnL0h_jF3XmWLvBfXxwo8EHlERNnijb3t2u7vg2vKs9-f1MFIjssmC-0Q93a0Fxl4TDHFJNRTlVTImx30Zw85rucpLgjAzLQt6l-AgzkCbK0NICdiJweczq_am_DTLP0TyJz32W0B2-THOImgoR-vV65L7nfLKPT64eATSDVkrPuU9b__ntj3xebUEP8IamPFzq0SI3RkXhj2G_sVxOckKgLL8IyI1"/>
+</div>
+<div class="space-y-3">
+<h3 class="serif-display text-2xl">The Archive</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed font-light">A digital library of the world’s most significant experiences, curated for those who seek depth over distance.</p>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="group space-y-6 md:mt-32">
+<div class="aspect-[4/5] overflow-hidden bg-surface-container">
+<img alt="Portrait of an artisan" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110" data-alt="elegant portrait of a local artisan in a sun-drenched workshop in Morocco, surrounded by fine textiles and soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBld48l2ZfPC2fA4CPCPTskn_UZvgCEKm0uznIiRqXJlcziA8Q2JMmXyE6Xwg4f78LW0okrQz8tasPQEm43zRsY7FuUvcxnV6CyKLlQKWlIXwNFjEBYDDZwUK_NouyiLfdJHSkBPEDbfS8fNhEQaQljB33ZJ7zCtEAfShVO-Kto51BZAk20D9SF3mzc4lbguCleyDk5V5BZcOa4NbC0F4AtUvcTFHYFX0IO2QOI9ExzxHXcU1nEW9O2w_DY-ihUmDjTT_mtWfoQgGO4"/>
+</div>
+<div class="space-y-3">
+<h3 class="serif-display text-2xl">Personal Narrative</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed font-light">Your journey is yours alone. We act as the ghostwriters for your most cherished memories.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Signature Quote -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-4xl mx-auto px-6 text-center">
+<span class="material-symbols-outlined text-primary text-4xl mb-8" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<blockquote class="serif-display text-3xl md:text-4xl font-light italic text-on-surface leading-snug">
+                    "Luxury is not the absence of simplicity, but the presence of meaning in every detail."
+                </blockquote>
+<div class="mt-8 flex items-center justify-center gap-4">
+<div class="h-[1px] w-12 bg-primary-container"></div>
+<span class="text-[10px] uppercase tracking-[0.3em] font-bold text-on-surface">The Curator's Note</span>
+<div class="h-[1px] w-12 bg-primary-container"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-neutral-200/20 bg-neutral-50 dark:bg-neutral-950">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-10 w-full max-w-screen-2xl mx-auto">
+<div class="mb-8 md:mb-0">
+<img alt="REHLATI Logo" class="w-auto object-contain h-8" src="https://lh3.googleusercontent.com/aida/ADBb0uj5RdV7_E2znZdSiXP0U6zeYv7WoqmfOgK-jYBoRuGf9LpEoz-__laLdsOAAHEcwK9_rS4SMKWSH2uRUoZbjHvLlgeeFjZNIJ9jT4uzFt3A-J5XyaUFA6TPxcg55-YBe2cqEemSQMCGLXfDgwyzEoLrqRslNyHYch1oKL2p2SG0xVrk4PKMpbjC41RFVx2Rgu1y8DkXR1APUGxsgiKlEELjCcN9JA819MF1afmeOKEjiwZ5_e-P890CnZdIVAhfcnz6VXuTFxOVYg"/>
+</div>
+<div class="flex flex-col md:flex-row gap-8 items-center text-center">
+<a class="font-sans text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-all opacity-80 hover:opacity-100" href="#">Instagram</a>
+<a class="font-sans text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-all opacity-80 hover:opacity-100" href="#">LinkedIn</a>
+<a class="font-sans text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-all opacity-80 hover:opacity-100" href="#">Journal</a>
+<a class="font-sans text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-all opacity-80 hover:opacity-100" href="#">Contact</a>
+</div>
+<div class="mt-8 md:mt-0 font-sans text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
+                © 2024 REHLATI THE CURATED ARCHIVE. ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+</body></html>
