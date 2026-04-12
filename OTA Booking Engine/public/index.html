@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REHLATI B2B</title>
+  <meta name="description" content="Premium B2B Travel Agency Engine">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="preloader" class="preloader">
+    <div class="spinner"></div>
+    <h2 style="font-family: var(--font-display); margin-top: 20px; color: var(--accent);">REHLATI B2B</h2>
+  </div>
+
+  <header class="header">
+    <div class="nav-container">
+      <div style="display: flex; align-items: center; gap: 40px;">
+        <a href="#/" class="nav-brand"><i class="fas fa-paper-plane" style="color:var(--accent)"></i> REHLATI <span style="font-size:0.5em;letter-spacing:1px;color:var(--accent)">B2B</span></a>
+        <div class="nav-links">
+          <a href="#/dashboard" class="active"><i class="fas fa-home"></i> Agency Portal</a>
+          <a href="#/flights"><i class="fas fa-plane"></i> Flights Inventory</a>
+          <a href="#/hotels"><i class="fas fa-hotel"></i> Hotels Inventory</a>
+        </div>
+      </div>
+      
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <button class="btn-icon" onclick="document.documentElement.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark')">
+          <i class="fas fa-moon"></i>
+        </button>
+        
+        <div class="auth-buttons" id="auth-links">
+          <button class="btn btn-outline" onclick="showAuthModal('login')">Agent Login</button>
+          <button class="btn btn-primary" onclick="alert('Contact sales@rehlati.com to register your agency.')">Register Agency</button>
+        </div>
+        
+        <div class="user-menu" id="user-menu" style="display: none;">
+          <button class="btn btn-ghost" onclick="toggleDropdown()">
+            <i class="fas fa-user-circle"></i> <span id="user-name-display">Menu</span>
+          </button>
+          <div class="user-dropdown" id="user-dropdown-content">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" style="min-height: 80vh;"></main>
+
+  <footer class="footer" style="padding: 60px 0 20px; text-align: center; border-top: 1px solid var(--border-subtle); margin-top: 60px;">
+    <h2 style="font-family: var(--font-display); margin-bottom: 20px; color: var(--accent);">REHLATI B2B</h2>
+    <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 30px;">The exclusive travel platform for premium agencies offering unbeatable net rates and white-glove service.</p>
+    <div style="color: var(--text-muted); font-size: 0.85rem;">© 2026 REHLATI Platform Holdings. All Rights Reserved.</div>
+  </footer>
+
+  <!-- Modals -->
+  <div class="modal-overlay" id="auth-modal" onclick="if(event.target===this) closeModals()">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="auth-title" style="font-family: var(--font-display)">Agent Login</h2>
+        <button class="btn-icon" onclick="closeModals()"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body" id="auth-body"></div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="booking-modal" onclick="if(event.target===this) closeModals()">
+    <div class="modal" style="max-width: 500px">
+      <div class="modal-header">
+        <h2 style="font-family: var(--font-display)">Client Booking</h2>
+        <button class="btn-icon" onclick="closeModals()"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body" id="booking-modal-body"></div>
+    </div>
+  </div>
+
+  <div id="toast-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 10000; display: flex; flex-direction: column; gap: 10px;"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/pages-home.js"></script>
+  <script src="/js/pages-listings.js"></script>
+  <script src="/js/pages-dashboard.js"></script>
+  <script src="/js/app.js"></script>
+  <script>
+    setTimeout(() => {
+      const preloader = document.getElementById('preloader');
+      preloader.style.opacity = '0';
+      setTimeout(() => preloader.style.display = 'none', 500);
+    }, 1500);
+  </script>
+</body>
+</html>
