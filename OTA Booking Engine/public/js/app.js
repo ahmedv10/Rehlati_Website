@@ -32,7 +32,7 @@ function handleRoute() {
   const path = hash.split('?')[0];
 
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-  const activeLink = document.querySelector(`.nav-links a[href="\${path}"]`);
+  const activeLink = document.querySelector(`.nav-links a[href="${path}"]`);
   if (activeLink) activeLink.classList.add('active');
 
   switch (path) {
@@ -67,18 +67,18 @@ function updateAuthUI() {
   if (currentUser) {
     authLinks.style.display = 'none';
     userMenu.style.display = 'block';
-    document.getElementById('user-name-display').textContent = `Agent \${currentUser.firstName}`;
+    document.getElementById('user-name-display').textContent = `Agent ${currentUser.firstName}`;
     
     // Build dropdown B2B specific
     const dropdown = document.getElementById('user-dropdown-content');
     dropdown.innerHTML = `
       <div style="padding:12px;border-bottom:1px solid var(--border-subtle);margin-bottom:8px">
-        <div style="font-weight:600">\${currentUser.firstName} \${currentUser.lastName}</div>
-        <div style="font-size:0.75rem;color:var(--text-muted)">\${currentAgency ? currentAgency.company_name : 'No Agency'} (\${currentUser.role})</div>
+        <div style="font-weight:600">${currentUser.firstName} ${currentUser.lastName}</div>
+        <div style="font-size:0.75rem;color:var(--text-muted)">${currentAgency ? currentAgency.company_name : 'No Agency'} (${currentUser.role})</div>
       </div>
       <a href="#/dashboard"><i class="fas fa-home"></i> Agency Portal</a>
       <a href="#/bookings"><i class="fas fa-suitcase"></i> My Bookings</a>
-      \${currentUser.role === 'agency_admin' ? '<a href="#/ledger"><i class="fas fa-file-invoice"></i> Ledger</a>' : ''}
+      ${currentUser.role === 'agency_admin' ? '<a href="#/ledger"><i class="fas fa-file-invoice"></i> Ledger</a>' : ''}
       <a href="#" onclick="logout(); return false;" style="color:var(--danger)"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
     `;
   } else {
@@ -169,10 +169,10 @@ function initiateBooking(type, id, name, netPrice) {
   const body = document.getElementById('booking-modal-body');
   body.innerHTML = `
     <div style="background:var(--bg-input);padding:16px;border-radius:12px;margin-bottom:24px">
-      <h3 style="margin-bottom:8px">\${name}</h3>
+      <h3 style="margin-bottom:8px">${name}</h3>
       <div style="display:flex;justify-content:space-between;color:var(--text-secondary);font-size:0.9rem">
         <span>NET Price:</span>
-        <span style="font-weight:700;color:var(--accent)">\${formatPrice(netPrice)}</span>
+        <span style="font-weight:700;color:var(--accent)">${formatPrice(netPrice)}</span>
       </div>
     </div>
     
@@ -212,12 +212,12 @@ function updatePricingPreview() {
   const profit = gross - net + (net * (currentAgency.commission_rate/100)); // Total earnings
   
   document.getElementById('pricing-preview').innerHTML = `
-    <div style="display:flex;justify-content:space-between"><span>NET Price (Charge to Agency):</span> <span>\${formatPrice(net)}</span></div>
-    <div style="display:flex;justify-content:space-between"><span>Markup (\${markup}%):</span> <span>+\${formatPrice(gross-net)}</span></div>
+    <div style="display:flex;justify-content:space-between"><span>NET Price (Charge to Agency):</span> <span>${formatPrice(net)}</span></div>
+    <div style="display:flex;justify-content:space-between"><span>Markup (${markup}%):</span> <span>+${formatPrice(gross-net)}</span></div>
     <div style="display:flex;justify-content:space-between;border-top:1px dashed #333;margin-top:8px;padding-top:8px">
-      <span>GROSS (Sell to Client):</span> <span style="color:var(--success);font-weight:bold">\${formatPrice(gross)}</span>
+      <span>GROSS (Sell to Client):</span> <span style="color:var(--success);font-weight:bold">${formatPrice(gross)}</span>
     </div>
-    <div style="margin-top:8px;font-size:0.8rem;color:var(--accent)">* You will also earn \${currentAgency.commission_rate}% base commission on the NET price (\${formatPrice(net*(currentAgency.commission_rate/100))})</div>
+    <div style="margin-top:8px;font-size:0.8rem;color:var(--accent)">* You will also earn ${currentAgency.commission_rate}% base commission on the NET price (${formatPrice(net*(currentAgency.commission_rate/100))})</div>
   `;
 }
 
@@ -245,7 +245,7 @@ async function processBooking(btn) {
     currentAgency.current_balance += bookingItem.netPrice;
     
     closeModals();
-    showToast('Booking Confirmed', \`Ref: \${res.bookingRef}. Net charged to agency.\`, 'success');
+    showToast('Booking Confirmed', `Ref: ${res.bookingRef}. Net charged to agency.`, 'success');
   } catch (err) {
     showToast('Booking Failed', err.message, 'error');
   } finally {
@@ -263,8 +263,8 @@ function formatDate(str) {
 }
 function showToast(title, message, type = 'success') {
   const toast = document.createElement('div');
-  toast.className = \`toast \${type}\`;
-  toast.innerHTML = \`<div class="toast-title">\${title}</div><div class="toast-message">\${message}</div>\`;
+  toast.className = `toast ${type}`;
+  toast.innerHTML = `<div class="toast-title">${title}</div><div class="toast-message">${message}</div>`;
   document.getElementById('toast-container').appendChild(toast);
   setTimeout(() => { toast.style.opacity = '0'; toast.style.transform = 'translateX(20px)'; setTimeout(() => toast.remove(), 300); }, 4000);
 }

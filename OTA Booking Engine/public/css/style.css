@@ -459,7 +459,11 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
   position: fixed; inset: 0; z-index: 2000;
   background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
   display: flex; align-items: center; justify-content: center;
-  padding: 24px; animation: fadeIn 0.3s ease;
+  padding: 24px; opacity: 0; visibility: hidden; pointer-events: none;
+  transition: all 0.3s ease;
+}
+.modal-overlay.active {
+  opacity: 1; visibility: visible; pointer-events: auto;
 }
 .modal {
   background: var(--bg-card); border: 1px solid var(--border);
@@ -476,6 +480,9 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
   color: var(--text-muted); transition: var(--transition); z-index: 10;
 }
 .modal-close:hover { background: var(--accent-glow); color: var(--accent); }
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-right: 20px; }
+.modal-header h2 { font-size: 1.6rem; color: var(--text-primary); }
+.modal-body { display: flex; flex-direction: column; gap: 16px; }
 @keyframes fadeIn { from { opacity: 0; } }
 @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } }
 

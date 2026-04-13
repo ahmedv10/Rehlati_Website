@@ -58,20 +58,20 @@
 
   <!-- Modals -->
   <div class="modal-overlay" id="auth-modal" onclick="if(event.target===this) closeModals()">
-    <div class="modal">
+    <div class="modal auth-modal">
       <div class="modal-header">
         <h2 id="auth-title" style="font-family: var(--font-display)">Agent Login</h2>
-        <button class="btn-icon" onclick="closeModals()"><i class="fas fa-times"></i></button>
+        <button class="modal-close" onclick="closeModals()"><i class="fas fa-times"></i></button>
       </div>
       <div class="modal-body" id="auth-body"></div>
     </div>
   </div>
 
   <div class="modal-overlay" id="booking-modal" onclick="if(event.target===this) closeModals()">
-    <div class="modal" style="max-width: 500px">
+    <div class="modal booking-modal">
       <div class="modal-header">
         <h2 style="font-family: var(--font-display)">Client Booking</h2>
-        <button class="btn-icon" onclick="closeModals()"><i class="fas fa-times"></i></button>
+        <button class="modal-close" onclick="closeModals()"><i class="fas fa-times"></i></button>
       </div>
       <div class="modal-body" id="booking-modal-body"></div>
     </div>

@@ -3,11 +3,11 @@ const API_URL = '/api';
 const API = {
   headers: () => ({
     'Content-Type': 'application/json',
-    'Authorization': \`Bearer \${localStorage.getItem('token')}\`
+    'Authorization': `Bearer ${localStorage.getItem('token')}`
   }),
 
   async get(endpoint) {
-    const res = await fetch(\`\${API_URL}\${endpoint}\`, { headers: this.headers() });
+    const res = await fetch(`${API_URL}${endpoint}`, { headers: this.headers() });
     if (!res.ok) {
       if (res.status === 401) localStorage.removeItem('token');
       const err = await res.json().catch(() => ({}));
@@ -17,7 +17,7 @@ const API = {
   },
 
   async post(endpoint, data) {
-    const res = await fetch(\`\${API_URL}\${endpoint}\`, {
+    const res = await fetch(`${API_URL}${endpoint}`, {
       method: 'POST',
       headers: this.headers(),
       body: JSON.stringify(data)
@@ -30,7 +30,7 @@ const API = {
   },
   
   async p_put(endpoint, data) {
-    const res = await fetch(\`\${API_URL}\${endpoint}\`, {
+    const res = await fetch(`${API_URL}${endpoint}`, {
       method: 'PUT',
       headers: this.headers(),
       body: JSON.stringify(data)
@@ -47,7 +47,7 @@ const API = {
   getMe: () => API.get('/auth/me'),
 
   // Inventory
-  getFlights: (params = '') => API.get(\`/flights?\${params}\`),
+  getFlights: (params = '') => API.get(`/flights?${params}`),
   getHotels: () => API.get('/hotels'),
 
   // Bookings
