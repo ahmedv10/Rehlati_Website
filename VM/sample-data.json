@@ -1,0 +1,87 @@
+{
+  "users": [
+    {
+      "Properties": {
+        "domain": "VULNLAB.LOCAL",
+        "name": "ADMINISTRATOR@VULNLAB.LOCAL",
+        "distinguishedname": "CN=Administrator,CN=Users,DC=vulnlab,DC=local",
+        "enabled": true,
+        "pwdlastset": 1600000000,
+        "lastlogon": 1690000000,
+        "hasspn": false,
+        "dontreqpreauth": false,
+        "unconstraineddelegation": true,
+        "passwordnotreqd": false,
+        "admincount": 1
+      }
+    },
+    {
+      "Properties": {
+        "domain": "VULNLAB.LOCAL",
+        "name": "SQL_SERVICE@VULNLAB.LOCAL",
+        "distinguishedname": "CN=SQL Service,CN=Users,DC=vulnlab,DC=local",
+        "enabled": true,
+        "pwdlastset": 1500000000,
+        "lastlogon": 1690000000,
+        "hasspn": true,
+        "dontreqpreauth": false,
+        "unconstraineddelegation": false,
+        "passwordnotreqd": false,
+        "admincount": 0
+      }
+    },
+    {
+      "Properties": {
+        "domain": "VULNLAB.LOCAL",
+        "name": "GUEST@VULNLAB.LOCAL",
+        "distinguishedname": "CN=Guest,CN=Users,DC=vulnlab,DC=local",
+        "enabled": true,
+        "pwdlastset": 0,
+        "lastlogon": 1690000000,
+        "hasspn": false,
+        "dontreqpreauth": true,
+        "unconstraineddelegation": false,
+        "passwordnotreqd": true,
+        "admincount": 0
+      }
+    },
+    {
+      "Properties": {
+        "domain": "VULNLAB.LOCAL",
+        "name": "BACKUP_ADMIN@VULNLAB.LOCAL",
+        "distinguishedname": "CN=Backup Admin,CN=Users,DC=vulnlab,DC=local",
+        "enabled": true,
+        "pwdlastset": 1680000000,
+        "lastlogon": 1690000000,
+        "hasspn": false,
+        "dontreqpreauth": false,
+        "unconstraineddelegation": false,
+        "passwordnotreqd": false,
+        "admincount": 1,
+        "description": "Password is BackupAdmin2021!"
+      }
+    }
+  ],
+  "computers": [
+    {
+      "Properties": {
+        "domain": "VULNLAB.LOCAL",
+        "name": "DC01.VULNLAB.LOCAL",
+        "enabled": true,
+        "unconstraineddelegation": true,
+        "laps": false,
+        "operatingsystem": "Windows Server 2016"
+      }
+    },
+    {
+      "Properties": {
+        "domain": "VULNLAB.LOCAL",
+        "name": "WS01.VULNLAB.LOCAL",
+        "enabled": true,
+        "unconstraineddelegation": false,
+        "laps": false,
+        "operatingsystem": "Windows 10"
+      }
+    }
+  ]
+}

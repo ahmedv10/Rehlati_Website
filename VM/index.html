@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AD Offline Vulnerability Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <i class="fas fa-shield-halved"></i> AD-SEC ANALYZER
+    </div>
+    <div class="header-status">
+      <div class="dot"></div> LOCAL MACHINE ENVIRONMENT
+    </div>
+  </header>
+
+  <main>
+    <div id="upload-panel" class="glass-panel" style="margin-bottom: 30px;">
+      <div class="panel-header">
+        <h2 class="panel-title"><i class="fas fa-database"></i> OFFLINE JSON INGESTION</h2>
+        <button class="btn" onclick="document.getElementById('file-input').click()"><i class="fas fa-folder-open"></i>
+          Browse Data</button>
+        <input type="file" id="file-input" style="display:none" accept=".json">
+      </div>
+
+      <div class="upload-zone" id="drop-zone">
+        <i class="fas fa-cloud-arrow-up upload-icon"></i>
+        <div class="upload-text">DRAG & DROP AD AUDIT OR BLOODHOUND JSON FILE</div>
+        <div class="upload-sub">Supports offline .json parsing for defensive analysis</div>
+      </div>
+
+      <div
+        style="margin-top: 20px; text-align: center; color: var(--text-muted); font-size: 0.85rem; font-family: var(--font-mono);">
+        <i class="fas fa-info-circle"></i> Try uploading the provided `sample-data.json` mock file to see the analysis
+        logic.
+      </div>
+    </div>
+
+    <!-- Dashboard Results -->
+    <div id="dashboard" class="dashboard-grid">
+      <div class="glass-panel stat-card">
+        <div class="stat-value" id="stat-total">0</div>
+        <div class="stat-label">Total Entities</div>
+      </div>
+      <div class="glass-panel stat-card">
+        <div class="stat-value red" id="stat-crit">0</div>
+        <div class="stat-label">Critical Findings</div>
+      </div>
+      <div class="glass-panel stat-card">
+        <div class="stat-value yellow" id="stat-high">0</div>
+        <div class="stat-label">High Findings</div>
+      </div>
+      <div class="glass-panel stat-card">
+        <div class="stat-value" id="stat-med">0</div>
+        <div class="stat-label">Medium Findings</div>
+      </div>
+
+      <div class="glass-panel vuln-list-panel">
+        <div class="panel-header">
+          <h2 class="panel-title"><i class="fas fa-bug"></i> VULNERABILITY REPORT & MITIGATIONS</h2>
+          <button class="btn danger" onclick="resetDashboard()"><i class="fas fa-trash-can"></i> Clear Report</button>
+        </div>
+        <div style="overflow-x: auto;">
+          <table id="vuln-table">
+            <thead>
+              <tr>
+                <th>Severity</th>
+                <th>Entity / Object</th>
+                <th>Vulnerability Type</th>
+                <th>Defensive Mitigation Plan</th>
+              </tr>
+            </thead>
+            <tbody id="vuln-tbody">
+              <!-- JS Populates this -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
